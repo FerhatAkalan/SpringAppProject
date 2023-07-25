@@ -2,9 +2,15 @@ spring:
   output:
     ansi:
       enabled: always
-  datasource:
-    url: jdbc:h2:./devdb
-    username: sa
+  #datasource:
+  #  url: jdbc:h2:./devdb
+  #  username: sa
   jpa:
-    hibernate:
-      ddl-auto: update
+    #hibernate:
+    #ddl-auto: update
+    properties:
+      javax:
+        persistence:
+          validation:
+            mode: none
+

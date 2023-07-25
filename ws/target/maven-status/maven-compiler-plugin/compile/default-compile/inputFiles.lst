@@ -3,5 +3,7 @@ C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\user\UserRepository.j
 C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\error\ApiError.java
 C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\shared\GenericResponse.java
 C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\user\UserService.java
+C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\user\UniqueUsernameValidator.java
 C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\WsApplication.java
 C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\user\UserController.java
+C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\user\UniqueUsername.java
