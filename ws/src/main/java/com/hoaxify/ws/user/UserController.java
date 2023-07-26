@@ -24,14 +24,15 @@ import java.util.Map;
 @RestController
 public class UserController {
 
-	@Autowired
-	UserService userService;
-	@PostMapping("/api/1.0/users")
-	public GenericResponse createUser(@Valid @RequestBody User user) {
-		userService.save(user);
-		return new GenericResponse("user created");
-	}
-	@ExceptionHandler(MethodArgumentNotValidException.class)
+    @Autowired
+    UserService userService;
+
+    @PostMapping("/api/1.0/users")
+    public GenericResponse createUser(@Valid @RequestBody User user) {
+        userService.save(user);
+        return new GenericResponse("user created");
+    }
+	/*@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public ApiError handleValidationException(MethodArgumentNotValidException exception) {
 		ApiError error = new ApiError(400, "Validation error", "/api/1.0/users");
@@ -41,6 +42,6 @@ public class UserController {
 		}
 		error.setValidationErrors(validationErrors);
 		return error;
-	}
+	}*/
 
 }

@@ -1,0 +1,9 @@
+com\hoaxify\ws\user\UniqueUsername.class
+com\hoaxify\ws\user\UserService.class
+com\hoaxify\ws\configuration\SecurityConfiguration.class
+com\hoaxify\ws\user\User.class
+com\hoaxify\ws\auth\AuthController.class
+com\hoaxify\ws\shared\GenericResponse.class
+com\hoaxify\ws\user\UserController.class
+com\hoaxify\ws\user\UniqueUsernameValidator.class
+com\hoaxify\ws\user\UserRepository.class

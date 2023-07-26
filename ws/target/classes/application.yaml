@@ -13,4 +13,6 @@ spring:
         persistence:
           validation:
             mode: none
-
+  main:
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
