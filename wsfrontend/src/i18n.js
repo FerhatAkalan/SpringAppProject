@@ -13,7 +13,8 @@ i18n.use(initReactI18next).init({
                 'Password Repeat': 'Password Repeat',
                 Login: 'Login',
                 'Home Page': 'Home Page',
-                'Share your coffee, explore the world!' : 'Share your coffee, explore the world!'
+                'Share your coffee, explore the world!' : 'Share your coffee, explore the world!',
+                'Logout': 'Logout'
 
             }
         },
@@ -27,7 +28,8 @@ i18n.use(initReactI18next).init({
                 'Password Repeat': 'Şifreyi Tekrarlayın',
                 Login: 'Giriş Yap',
                 'Home Page': 'Ana Sayfa',
-                'Share your coffee, explore the world!' : 'Kahvenizi paylaşın, dünyayı keşfedin!'
+                'Share your coffee, explore the world!' : 'Kahvenizi paylaşın, dünyayı keşfedin!',
+                'Logout': 'Çıkış'
             }
         }
     },
