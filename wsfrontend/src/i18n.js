@@ -11,7 +11,9 @@ i18n.use(initReactI18next).init({
                 'Display Name': 'Display Name',
                 'Password': 'Password',
                 'Password Repeat': 'Password Repeat',
-                Login: 'Login'
+                Login: 'Login',
+                'Home Page': 'Home Page',
+                'Share your coffee, explore the world!' : 'Share your coffee, explore the world!'
 
             }
         },
@@ -23,7 +25,9 @@ i18n.use(initReactI18next).init({
                 'Display Name': 'Görünen Ad',
                 'Password': 'Şifre',
                 'Password Repeat': 'Şifreyi Tekrarlayın',
-                Login: 'Giriş Yap'
+                Login: 'Giriş Yap',
+                'Home Page': 'Ana Sayfa',
+                'Share your coffee, explore the world!' : 'Kahvenizi paylaşın, dünyayı keşfedin!'
             }
         }
     },

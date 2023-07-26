@@ -9,16 +9,16 @@ const LanguageSelector = (props) => {
     changeLanguage(language);
   };
   return (
-    <div className="container">
+    <div className="container mt-1">
       <div className="d-flex flex-row-reverse">
         <img
-          src="https://flagsapi.com/US/flat/48.png"
+          src="https://flagsapi.com/US/flat/32.png"
           alt="USA Flag"
           onClick={() => onChangeLanguage("en")}
           style={{ cursor: "pointer" }}
         />
         <img
-          src="https://flagsapi.com/TR/flat/48.png"
+          src="https://flagsapi.com/TR/flat/32.png"
           alt="Turkish Flag"
           onClick={() => onChangeLanguage("tr")}
           style={{ cursor: "pointer" }}

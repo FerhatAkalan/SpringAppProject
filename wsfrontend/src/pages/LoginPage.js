@@ -2,33 +2,16 @@ import React, { Component } from "react";
 import Input from "../components/Input";
 import { withTranslation } from "react-i18next";
 import { login } from "../api/apiCalls";
-import axios from "axios";
 import ButtonWithProgress from "./ButtonWithProgress";
-
+import ApiProgress, { withApiProgress } from "../shared/ApiProgress";
 class LoginPage extends Component {
   state = {
     username: null,
     password: null,
     error: null,
-    pendingApiCall: false,
-    errors: {},
   };
 
-  componentDidMount(){
-    axios.interceptors.request.use((request) =>{
-      this.setState({pendingApiCall:true});
-      return request;
-    });
-
-    axios.interceptors.response.use(function (response){
-      this.setState({pendingApiCall:false});
-      return response;
-    }, (error) => {
-      this.setState({pendingApiCall: false});
-      throw error;
-    });
-  }
-
+  
   onChange = (event) => {
     const { name, value } = event.target;
     this.setState({
@@ -44,11 +27,15 @@ class LoginPage extends Component {
       username,
       password,
     };
+
+    const {push} = this.props.history;
+
     this.setState({
       error: null,
     });
     try {
       await login(creds);
+      push('/');
     } catch (apiError) {
       this.setState({
         error: apiError.response.data.message,
@@ -57,9 +44,9 @@ class LoginPage extends Component {
   };
 
   render() {
-    const { username, password, error, pendingApiCall } = this.state;
+    const { t, pendingApiCall } = this.props;
+    const { username, password, error } = this.state;
     const buttonEnabled = username && password;
-    const { t } = this.props;
     return (
       <div className="container">
         <form>
@@ -91,5 +78,5 @@ class LoginPage extends Component {
     );
   }
 }
-
-export default withTranslation()(LoginPage);
+const LoginPageWithTranslation = withTranslation()(LoginPage)
+export default withApiProgress(LoginPageWithTranslation,'/api/1.0/auth');

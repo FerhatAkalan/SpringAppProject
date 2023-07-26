@@ -1,7 +1,6 @@
 C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\user\User.java
 C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\user\UserRepository.java
 C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\error\ApiError.java
-C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\configuration\HoaxifyUserDetails.java
 C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\error\ErrorHandler.java
 C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\configuration\AuthEntryPoint.java
 C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\user\UniqueUsernameValidator.java
@@ -14,3 +13,4 @@ C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\shared\GenericRespons
 C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\user\UserService.java
 C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\shared\Views.java
 C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\configuration\UserAuthService.java
+C:\Users\Ferhat\ws-project\ws\src\main\java\com\hoaxify\ws\shared\CurrentUser.java
