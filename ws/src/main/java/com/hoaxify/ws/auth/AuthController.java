@@ -15,7 +15,7 @@ public class AuthController {
     UserRepository userRepository;
 
     @PostMapping("/api/1.0/auth")
-    @JsonView(Views.Sensitive.class)
+    @JsonView(Views.Base.class)
     ResponseEntity<?> handleAuthentication(@CurrentUser User user) {
         return ResponseEntity.ok(user);
     }

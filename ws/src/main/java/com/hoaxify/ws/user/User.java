@@ -20,11 +20,11 @@ import java.util.Collection;
 public class User implements UserDetails {
 
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = -8421768845853099274L;
+     *
+     */
+    private static final long serialVersionUID = -8421768845853099274L;
 
-	@Id
+    @Id
     @GeneratedValue
     private long id;
 
