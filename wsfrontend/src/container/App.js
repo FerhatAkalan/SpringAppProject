@@ -5,6 +5,7 @@ import ApiProgress from "../shared/ApiProgress";
 import UserSignupPage from "../pages/UserSignupPage";
 import HomePage from "../pages/HomePage";
 import UserPage from "../pages/UserPage";
+import Footer from "./Footer";
 import {
   HashRouter as Router,
   Route,
@@ -12,61 +13,50 @@ import {
   Switch,
 } from "react-router-dom";
 import TopBar from "./TopBar";
+import { connect } from "react-redux";
+//import { Authentication } from "../shared/AuthenticationContext";
+
+
 
 class App extends React.Component {
-  state = {
-    isLoggedIn: false,
-    username: undefined,
-  };
-
-  onLoginSuccess = (username) => {
-    this.setState({
-      username,
-      isLoggedIn: true,
-    });
-  };
-
-  onLogoutSuccess = () => {
-    this.setState({
-      isLoggedIn: false,
-      username: undefined,
-    });
-  };
-
+  //static contextType = Authentication;
   render() {
-    const { isLoggedIn, username } = this.state;
+    const {isLoggedIn} = this.props;
+    
+    //onst { isLoggedIn, username } = this.state;
     return (
       <div>
         <Router>
-          <TopBar
-            isLoggedIn={isLoggedIn}
-            username={username}
-            onLogoutSuccess={this.onLogoutSuccess}
-          />
+          <TopBar />
           <Switch>
             <Route exact path="/" component={HomePage} />
             {!isLoggedIn && (
               <Route
                 path="/login"
-                component={(props) => {
-                  return (
-                    <LoginPage
-                      {...props}
-                      onLoginSuccess={this.onLoginSuccess}
-                    />
-                  );
-                }}
+                component={LoginPage}
               />
             )}
-
             <Route path="/signup" component={UserSignupPage} />
-            <Route path="/user/:username" component={UserPage} />
+            <Route
+              path="/user/:username"
+              component={UserPage}
+            />
             <Redirect to="/" />
           </Switch>
+          <div>
+            <Footer />
+          </div>
         </Router>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (store) => {
+  return {
+    isLoggedIn: store.isLoggedIn,
+  };
+};
+
+
+export default connect(mapStateToProps)(App);

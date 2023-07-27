@@ -4,6 +4,8 @@ import Input from "../components/Input";
 import { withTranslation } from "react-i18next";
 import ButtonWithProgress from "./ButtonWithProgress";
 import { withApiProgress } from "../shared/ApiProgress";
+import background from "../assets/45050925.jpg";
+
 class UserSignupPage extends React.Component {
   state = {
     username: null,
@@ -52,58 +54,85 @@ class UserSignupPage extends React.Component {
     }
   };
 
-  
-
   render() {
-    const {  errors } = this.state;
+    const { errors } = this.state;
     const { username, displayName, password, passwordRepeat } = errors;
-    const { t,pendingApiCall } = this.props;
+    const { t, pendingApiCall } = this.props;
     return (
-      <div className="container">
-
-        <form>
-          <h1 className="text-center mt-3">{t("Sign Up")}</h1>
-          <Input
-            name="username"
-            label={t("Username")}
-            error={username}
-            onChange={this.onChange}
-          />
-          <Input
-            name="displayName"
-            label={t("Display Name")}
-            error={displayName}
-            onChange={this.onChange}
-          />
-          <Input
-            name="password"
-            label={t("Password")}
-            type="password"
-            error={password}
-            onChange={this.onChange}
-          />
-          <Input
-            name="passwordRepeat"
-            label={t("Password Repeat")}
-            type="password"
-            error={passwordRepeat}
-            onChange={this.onChange}
-          />
-          <div className="text-center mt-3">
-            <ButtonWithProgress
-              onClick={this.onClickSignup}
-              disabled={pendingApiCall || passwordRepeat !== undefined}
-              pendingApiCall={pendingApiCall}
-              text={t("Sign Up")}
+      <div style={{
+        backgroundImage: `url(${background})`,
+        backgroundSize: "100%",
+        backgroundPosition: "center center",
+        height: "85vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        backgroundColor: "rgba(192, 192, 192, 1)",
+      }}>
+        <div
+          className="container"
+          style={{
+            display: "block",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "rgba(255, 255, 255, 0.8)",
+            padding: "30px",
+            borderRadius: "20px",
+            width: "500px",
+            height: "500px",
+          }}
+          
+        >
+          <form>
+            <h1 className="text-center mt-3">{t("Sign Up")}</h1>
+            <Input
+              name="username"
+              label={t("Username")}
+              error={username}
+              onChange={this.onChange}
             />
-          </div>
-        </form>
+            <Input
+              name="displayName"
+              label={t("Display Name")}
+              error={displayName}
+              onChange={this.onChange}
+            />
+            <Input
+              name="password"
+              label={t("Password")}
+              type="password"
+              error={password}
+              onChange={this.onChange}
+            />
+            <Input
+              name="passwordRepeat"
+              label={t("Password Repeat")}
+              type="password"
+              error={passwordRepeat}
+              onChange={this.onChange}
+            />
+            <div className="text-center mt-3">
+              <ButtonWithProgress
+                onClick={this.onClickSignup}
+                disabled={pendingApiCall || passwordRepeat !== undefined}
+                pendingApiCall={pendingApiCall}
+                text={t("Sign Up")}
+              />
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
 }
-const UserSignupPageWithApiProgress = withApiProgress(UserSignupPage, '/api/1.0/users');
+const UserSignupPageWithApiProgress = withApiProgress(
+  UserSignupPage,
+  "/api/1.0/users"
+);
 
-const UserSignupPageWithTranslation = withTranslation()(UserSignupPageWithApiProgress);
+const UserSignupPageWithTranslation = withTranslation()(
+  UserSignupPageWithApiProgress
+);
 
 export default UserSignupPageWithTranslation;

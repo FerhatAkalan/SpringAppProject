@@ -12,10 +12,13 @@ i18n.use(initReactI18next).init({
                 'Password': 'Password',
                 'Password Repeat': 'Password Repeat',
                 Login: 'Login',
+                LOGIN: 'LOGIN',
                 'Home Page': 'Home Page',
                 'Share your coffee, explore the world!' : 'Share your coffee, explore the world!',
-                'Logout': 'Logout'
-
+                'Logout': 'Logout',
+                'Profile': 'Profile',
+                'coded by':'coded by',
+                'Forget Password?': 'Forget Password?'
             }
         },
         tr: {
@@ -26,10 +29,14 @@ i18n.use(initReactI18next).init({
                 'Display Name': 'Görünen Ad',
                 'Password': 'Şifre',
                 'Password Repeat': 'Şifreyi Tekrarlayın',
-                Login: 'Giriş Yap',
+                LOGIN: 'Oturum Aç',
+                Login: 'Oturum Aç',
                 'Home Page': 'Ana Sayfa',
                 'Share your coffee, explore the world!' : 'Kahvenizi paylaşın, dünyayı keşfedin!',
-                'Logout': 'Çıkış'
+                'Logout': 'Çıkış',
+                'Profile': 'Profil',
+                'coded by':'Kodlayan',
+                'Forget Password?': 'Şifrenizi mi Unuttunuz?'
             }
         }
     },
