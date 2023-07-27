@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Input from "../components/Input";
-import { withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import ButtonWithProgress from "./ButtonWithProgress";
-import { withApiProgress } from "../shared/ApiProgress";
-//import { Authentication } from "../shared/AuthenticationContext";
+import { useApiProgress } from "../shared/ApiProgress";
 import background from "../assets/background1.jpg";
 import user from "../assets/vector.png";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { loginHandler } from "../redux/authActions";
 
 const LoginPage = (props) => {
-  //static contextType = Authentication;
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const [error, setError] = useState();
-
-  useEffect(()=>{
+  const dispatch = useDispatch();
+  useEffect(() => {
     setError(undefined);
-  },[username,password]);
+  }, [username, password]);
 
   const onClickLogin = async (event) => {
     event.preventDefault();
@@ -26,7 +24,7 @@ const LoginPage = (props) => {
       username,
       password,
     };
-    const { history, dispatch } = props;
+    const { history } = props;
     const { push } = history;
     setError(undefined);
 
@@ -37,7 +35,8 @@ const LoginPage = (props) => {
       setError(apiError.response.data.message);
     }
   };
-  const { t, pendingApiCall } = props;
+  const { t } = useTranslation();
+  const  pendingApiCall = useApiProgress('/api/1.0/auth');
   const buttonEnabled = username && password;
   return (
     <div
@@ -115,7 +114,4 @@ const LoginPage = (props) => {
   );
 };
 
-const LoginPageWithTranslation = withTranslation()(LoginPage);
-export default connect()(
-  withApiProgress(LoginPageWithTranslation, "/api/1.0/auth")
-);
+export default LoginPage;

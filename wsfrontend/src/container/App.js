@@ -13,50 +13,29 @@ import {
   Switch,
 } from "react-router-dom";
 import TopBar from "./TopBar";
-import { connect } from "react-redux";
-//import { Authentication } from "../shared/AuthenticationContext";
+import { useSelector } from "react-redux";
 
-
-
-class App extends React.Component {
-  //static contextType = Authentication;
-  render() {
-    const {isLoggedIn} = this.props;
-    
-    //onst { isLoggedIn, username } = this.state;
-    return (
-      <div>
-        <Router>
-          <TopBar />
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            {!isLoggedIn && (
-              <Route
-                path="/login"
-                component={LoginPage}
-              />
-            )}
-            <Route path="/signup" component={UserSignupPage} />
-            <Route
-              path="/user/:username"
-              component={UserPage}
-            />
-            <Redirect to="/" />
-          </Switch>
-          <div>
-            <Footer />
-          </div>
-        </Router>
-      </div>
-    );
-  }
-}
-
-const mapStateToProps = (store) => {
-  return {
+const App = () => {
+  const { isLoggedIn } = useSelector((store) => ({
     isLoggedIn: store.isLoggedIn,
-  };
+  }));
+  return (
+    <div>
+      <Router>
+        <TopBar />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          {!isLoggedIn && <Route path="/login" component={LoginPage} />}
+          <Route path="/signup" component={UserSignupPage} />
+          <Route path="/user/:username" component={UserPage} />
+          <Redirect to="/" />
+        </Switch>
+        <div>
+          <Footer />
+        </div>
+      </Router>
+    </div>
+  );
 };
 
-
-export default connect(mapStateToProps)(App);
+export default App;
